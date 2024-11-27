@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_localbike_stores
+    description: >
+      Table de staging pour les magasins. Cette table nettoie et standardise les données brutes
+      issues de la source `stores`. Elle est utilisée pour analyser les informations relatives
+      aux localisations et caractéristiques des magasins Local Bike.
+    columns:
+      - name: store_id
+        description: >
+          Identifiant unique du magasin. Utilisé comme clé primaire pour relier les informations
+          sur les magasins aux stocks et commandes.
+        tests:
+          - unique: {} # Vérifie que chaque store_id est unique
+          - not_null: {} # Vérifie que store_id ne contient pas de valeur NULL
+      - name: store_name
+        description: >
+          Nom du magasin. Utilisé pour identifier chaque localisation.
+        tests:
+          - not_null: {} # Vérifie que store_name ne contient pas de valeur NULL
+      - name: phone
+        description: >
+          Numéro de téléphone du magasin. Utilisé pour la communication interne et externe.
+      - name: email
+        description: >
+          Adresse e-mail du magasin. Utilisée pour la correspondance officielle.
+        tests:
+          - not_null: {} # Vérifie que email ne contient pas de valeur NULL
+          - unique: {} # Vérifie que chaque adresse e-mail est unique
+      - name: street
+        description: >
+          Rue où se situe le magasin.
+      - name: city
+        description: >
+          Ville où se situe le magasin.
+      - name: state
+        description: >
+          État où se situe le magasin.
+      - name: zip_code
+        description: >
+          Code postal du magasin.

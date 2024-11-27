@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_localbike_stocks
+    description: >
+      Table de staging pour les stocks de produits dans les magasins Local Bike. 
+      Cette table nettoie et standardise les données brutes issues de la source `stocks`. 
+      Elle est utilisée pour analyser les niveaux de stock par magasin et produit.
+    columns:
+      - name: store_id
+        description: >
+          Identifiant unique du magasin où le produit est stocké.
+        tests:
+          - not_null: {} # Vérifie que store_id ne contient pas de valeur NULL
+      - name: product_id
+        description: >
+          Identifiant unique du produit en stock. Utilisé pour relier les informations de stock aux produits.
+        tests:
+          - not_null: {} # Vérifie que product_id ne contient pas de valeur NULL
+      - name: quantity
+        description: >
+          Quantité disponible en stock pour un produit dans un magasin donné.
+        tests:
+          - not_null: {} # Vérifie que quantity ne contient pas de valeur NULL
+          

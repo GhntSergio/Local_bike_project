@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: stg_localbike_staffs
+    description: >
+      Table de staging pour les membres du personnel. Cette table nettoie et standardise les données brutes
+      issues de la source `staffs`. Elle est utilisée pour analyser les informations relatives aux employés
+      travaillant dans les magasins Local Bike.
+    columns:
+      - name: staff_id
+        description: >
+          Identifiant unique du membre du personnel. Utilisé comme clé primaire pour relier
+          les informations sur les employés aux magasins et aux commandes.
+        tests:
+          - unique: {} # Vérifie que chaque staff_id est unique
+          - not_null: {} # Vérifie que staff_id ne contient pas de valeur NULL
+      - name: first_name
+        description: >
+          Prénom du membre du personnel. Utilisé pour des analyses descriptives.
+        tests:
+          - not_null: {} # Vérifie que first_name ne contient pas de valeur NULL
+      - name: last_name
+        description: >
+          Nom du membre du personnel. Utilisé pour des analyses descriptives.
+        tests:
+          - not_null: {} # Vérifie que last_name ne contient pas de valeur NULL
+      - name: email
+        description: >
+          Adresse e-mail professionnelle. Utilisée pour la communication interne et externe.
+        tests:
+          - not_null: {} # Vérifie que email ne contient pas de valeur NULL
+          - unique: {} # Vérifie que chaque email est unique
+      - name: phone
+        description: >
+          Numéro de téléphone professionnel. Utilisé pour la communication.
+      - name: active
+        description: >
+          Indicateur de statut actif (1 pour actif, 0 pour inactif). Utilisé pour suivre les employés actifs.
+        tests:
+          - not_null: {} # Vérifie que active ne contient pas de valeur NULL
+      - name: store_id
+        description: >
+          Identifiant du magasin associé au membre du personnel. Utilisé pour relier les employés
+          aux magasins dans lesquels ils travaillent.
+        tests:
+          - not_null: {} # Vérifie que store_id ne contient pas de valeur NULL
+      - name: manager_id
+        description: >
+          Identifiant du manager direct du membre du personnel. Peut être NULL pour certains employés.

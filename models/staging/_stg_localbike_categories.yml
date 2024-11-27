@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_localbike_categories
+    description: >
+      Table de staging pour les catégories de produits. Cette table nettoie et
+      standardise les données brutes issues de la source `categories`. Elle est utilisée
+      pour analyser les produits en fonction de leurs catégories.
+    columns:
+      - name: category_id
+        description: >
+          Identifiant unique de la catégorie. Utilisé comme clé primaire pour relier
+          les produits à leurs catégories respectives.
+        tests:
+          - unique: {} # Vérifie que chaque category_id est unique
+          - not_null: {} # Vérifie que category_id ne contient pas de valeur NULL
+      - name: category_name
+        description: >
+          Nom de la catégorie. Utilisé pour identifier et classer les produits.
+        tests:
+          - not_null: {} # Vérifie que category_name ne contient pas de valeur NULL
+
