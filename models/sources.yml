@@ -1,0 +1,159 @@
+version: 2
+
+sources:
+  - name: localbike_dataset
+    description: >
+      Ce dossier contient les données brutes provenant des systèmes opérationnels de Local Bike,
+      organisées selon les tables décrites dans le schéma relationnel.
+
+    schema: localbike_dataset
+
+    tables:
+      - name: customers
+        description: >
+          Contient les informations sur les clients de Local Bike, utilisées pour analyser le comportement client.
+        columns:
+          - name: customer_id
+            description: Identifiant unique du client.
+          - name: first_name
+            description: Prénom du client.
+          - name: last_name
+            description: Nom de famille du client.
+          - name: phone
+            description: Numéro de téléphone du client.
+          - name: email
+            description: Adresse e-mail du client.
+          - name: street
+            description: Adresse postale du client.
+          - name: city
+            description: Ville où réside le client.
+          - name: state
+            description: État de résidence du client.
+          - name: zip_code
+            description: Code postal de la résidence du client.
+
+      - name: staffs
+        description: >
+          Contient les informations sur le personnel travaillant dans les magasins Local Bike.
+        columns:
+          - name: staff_id
+            description: Identifiant unique du membre du personnel.
+          - name: first_name
+            description: Prénom du membre du personnel.
+          - name: last_name
+            description: Nom de famille du membre du personnel.
+          - name: email
+            description: Adresse e-mail du membre du personnel.
+          - name: phone
+            description: Numéro de téléphone professionnel.
+          - name: active
+            description: Indique si le membre du personnel est actif (1 pour actif, 0 pour inactif).
+          - name: store_id
+            description: Identifiant du magasin où travaille le membre du personnel.
+          - name: manager_id
+            description: Identifiant du manager direct.
+
+      - name: stores
+        description: >
+          Contient les informations sur les magasins Local Bike.
+        columns:
+          - name: store_id
+            description: Identifiant unique du magasin.
+          - name: store_name
+            description: Nom du magasin.
+          - name: phone
+            description: Numéro de téléphone du magasin.
+          - name: email
+            description: Adresse e-mail du magasin.
+          - name: street
+            description: Adresse postale du magasin.
+          - name: city
+            description: Ville où est situé le magasin.
+          - name: state
+            description: État où est situé le magasin.
+          - name: zip_code
+            description: Code postal du magasin.
+
+      - name: orders
+        description: >
+          Contient les informations sur les commandes passées par les clients.
+        columns:
+          - name: order_id
+            description: Identifiant unique de la commande.
+          - name: customer_id
+            description: Identifiant du client ayant passé la commande.
+          - name: order_status
+            description: Statut de la commande (en cours, expédiée, annulée, etc.).
+          - name: order_date
+            description: Date de création de la commande.
+          - name: required_date
+            description: Date à laquelle la commande doit être livrée.
+          - name: shipped_date
+            description: Date d’expédition de la commande.
+          - name: store_id
+            description: Identifiant du magasin ayant géré la commande.
+          - name: staff_id
+            description: Identifiant du membre du personnel ayant géré la commande.
+
+      - name: order_item
+        description: >
+          Contient les informations détaillées sur les articles inclus dans chaque commande.
+        columns:
+          - name: order_id
+            description: Identifiant de la commande associée.
+          - name: item_id
+            description: Identifiant unique de l’article dans la commande.
+          - name: product_id
+            description: Identifiant du produit commandé.
+          - name: quantity
+            description: Quantité commandée pour ce produit.
+          - name: list_price
+            description: Prix unitaire du produit commandé.
+          - name: discount
+            description: Réduction appliquée sur l’article.
+
+      - name: products
+        description: >
+          Contient les informations sur les produits vendus par Local Bike.
+        columns:
+          - name: product_id
+            description: Identifiant unique du produit.
+          - name: product_name
+            description: Nom du produit.
+          - name: brand_id
+            description: Identifiant de la marque du produit.
+          - name: category_id
+            description: Identifiant de la catégorie du produit.
+          - name: model_year
+            description: Année de production du modèle.
+          - name: list_price
+            description: Prix de vente du produit.
+
+      - name: categories
+        description: >
+          Contient les catégories auxquelles les produits appartiennent.
+        columns:
+          - name: category_id
+            description: Identifiant unique de la catégorie.
+          - name: category_name
+            description: Nom de la catégorie.
+
+      - name: brands
+        description: >
+          Contient les informations sur les marques des produits vendus.
+        columns:
+          - name: brand_id
+            description: Identifiant unique de la marque.
+          - name: brand_name
+            description: Nom de la marque.
+
+      - name: stocks
+        description: >
+          Contient les données sur les niveaux de stock de chaque produit dans chaque magasin.
+        columns:
+          - name: store_id
+            description: Identifiant du magasin.
+          - name: product_id
+            description: Identifiant du produit.
+          - name: quantity
+            description: Quantité en stock du produit dans le magasin.
