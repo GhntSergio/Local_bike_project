@@ -83,8 +83,6 @@ Des tests sont inclus pour garantir l'intégrité des données :
 git clone https://github.com/GhntSergio/Local_bike_project.git
 cd Local_bike_project
 
-
-
 ---
 
 

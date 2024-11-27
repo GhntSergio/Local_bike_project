@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_localbike_orders
+    description: >
+      Table de staging pour les commandes. Cette table nettoie et standardise les données brutes
+      issues de la source `orders`. Elle est utilisée pour analyser les informations relatives aux
+      commandes des clients.
+    columns:
+      - name: order_id
+        description: >
+          Identifiant unique de la commande. Utilisé comme clé primaire pour relier les commandes
+          aux articles commandés et aux clients.
+        tests:
+          - unique: {} # Vérifie que chaque order_id est unique
+          - not_null: {} # Vérifie que order_id ne contient pas de valeur NULL
+      - name: customer_id
+        description: >
+          Identifiant unique du client ayant passé la commande. Utilisé pour relier les commandes
+          aux informations sur les clients.
+        tests:
+          - not_null: {} # Vérifie que customer_id ne contient pas de valeur NULL
+      - name: order_status
+        description: >
+          Statut de la commande (exemple : 1 = En cours, 2 = Expédiée, 3 = Annulée).
+        tests:
+          - not_null: {} # Vérifie que order_status ne contient pas de valeur NULL
+      - name: order_date
+        description: >
+          Date à laquelle la commande a été créée.
+        tests:
+          - not_null: {} # Vérifie que order_date ne contient pas de valeur NULL
+      - name: required_date
+        description: >
+          Date requise pour la livraison de la commande.
+      - name: shipped_date
+        description: >
+          Date à laquelle la commande a été expédiée. Peut être NULL si la commande n'est pas encore expédiée.
+      - name: store_id
+        description: >
+          Identifiant du magasin associé à la commande. Utilisé pour relier les commandes aux informations des magasins.
+        tests:
+          - not_null: {} # Vérifie que store_id ne contient pas de valeur NULL
+      - name: staff_id
+        description: >
+          Identifiant de l'employé ayant traité la commande. Utilisé pour analyser les performances des employés.
+        tests:
+          - not_null: {} # Vérifie que staff_id ne contient pas de valeur NULL

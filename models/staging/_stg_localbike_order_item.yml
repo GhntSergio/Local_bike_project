@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_localbike_order_item
+    description: >
+      Table de staging pour les articles de commande. Cette table nettoie et
+      standardise les données brutes issues de la source `order_items`. Elle est utilisée
+      pour analyser les informations sur les articles inclus dans chaque commande.
+    columns:
+      - name: order_id
+        description: >
+          Identifiant unique de la commande. Utilisé pour relier les articles à leurs commandes respectives.
+        tests:
+          - not_null: {} # Vérifie que order_id ne contient pas de valeur NULL
+      - name: item_id
+        description: >
+          Identifiant unique de l'article dans une commande. Utilisé pour différencier les lignes d'une commande.
+        tests:
+          - not_null: {} # Vérifie que item_id ne contient pas de valeur NULL
+      - name: product_id
+        description: >
+          Identifiant du produit commandé. Utilisé pour relier les articles aux informations sur les produits.
+        tests:
+          - not_null: {} # Vérifie que product_id ne contient pas de valeur NULL
+      - name: quantity
+        description: >
+          Quantité commandée pour ce produit. Utilisée pour calculer le montant total de la commande.
+        tests:
+          - not_null: {} # Vérifie que quantity ne contient pas de valeur NULL
+      - name: list_price
+        description: >
+          Prix unitaire du produit commandé. Utilisé pour calculer le montant total avant réduction.
+        tests:
+          - not_null: {} # Vérifie que list_price ne contient pas de valeur NULL
+      - name: discount
+        description: >
+          Réduction appliquée sur l'article commandé. Utilisée pour calculer le montant total après réduction.

@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_localbike_products
+    description: >
+      Table de staging pour les produits. Elle nettoie et standardise les données brutes
+      issues de la source `products`. Cette table est utilisée pour analyser les informations
+      relatives aux produits vendus par Local Bike.
+    columns:
+      - name: product_id
+        description: >
+          Identifiant unique du produit. Utilisé comme clé primaire pour relier les produits
+          à leurs marques et catégories.
+        tests:
+          - unique: {} # Vérifie que chaque product_id est unique
+          - not_null: {} # Vérifie que product_id ne contient pas de valeur NULL
+      - name: product_name
+        description: >
+          Nom du produit. Utilisé pour identifier les produits de manière descriptive.
+        tests:
+          - not_null: {} # Vérifie que product_name ne contient pas de valeur NULL
+      - name: brand_id
+        description: >
+          Identifiant de la marque associée au produit. Utilisé pour relier les produits
+          aux informations des marques dans la table `brands`.
+        tests:
+          - not_null: {} # Vérifie que brand_id ne contient pas de valeur NULL
+      - name: category_id
+        description: >
+          Identifiant de la catégorie du produit. Utilisé pour relier les produits aux
+          informations des catégories dans la table `categories`.
+        tests:
+          - not_null: {} # Vérifie que category_id ne contient pas de valeur NULL
+      - name: model_year
+        description: >
+          Année de sortie du modèle du produit. Utilisée pour des analyses temporelles
+          ou pour identifier les produits obsolètes.
+        tests:
+          - not_null: {} # Vérifie que model_year ne contient pas de valeur NULL
+      - name: list_price
+        description: >
+          Prix unitaire du produit. Utilisé pour calculer les revenus des ventes.
+        tests:
+          - not_null: {} # Vérifie que list_price ne contient pas de valeur NULL

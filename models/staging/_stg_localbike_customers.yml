@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_localbike_customers
+    description: >
+      Table de staging pour les clients. Elle nettoie et standardise les données brutes
+      issues de la source `customers`. Cette table est utilisée pour analyser les informations
+      sur les clients de Local Bike.
+    columns:
+      - name: customer_id
+        description: >
+          Identifiant unique du client. Utilisé pour relier les transactions aux clients.
+        tests:
+          - unique: {} # Vérifie que chaque customer_id est unique
+          - not_null: {} # Vérifie que customer_id ne contient pas de valeur NULL
+      - name: first_name
+        description: >
+          Prénom du client. Utilisé pour l'identification personnelle et les analyses.
+        tests:
+          - not_null: {} # Vérifie que first_name ne contient pas de valeur NULL
+      - name: last_name
+        description: >
+          Nom de famille du client. Utilisé pour l'identification personnelle et les analyses.
+        tests:
+          - not_null: {} # Vérifie que last_name ne contient pas de valeur NULL
+      - name: phone
+        description: >
+          Numéro de téléphone du client. Utilisé pour la communication et les suivis.
+      - name: email
+        description: >
+          Adresse e-mail du client. Utilisée pour les communications marketing et les suivis.
+        tests:
+          - not_null: {} # Vérifie que email ne contient pas de valeur NULL
+          - unique: {} # Vérifie que chaque email est unique
+      - name: street
+        description: >
+          Rue de résidence du client.
+      - name: city
+        description: >
+          Ville de résidence du client.
+      - name: state
+        description: >
+          État de résidence du client.
+      - name: zip_code
+        description: >
+          Code postal de résidence du client.
