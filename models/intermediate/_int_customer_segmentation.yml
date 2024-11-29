@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: int_customer_segmentation
+    description: >
+      Ce modèle segmente les clients en fonction de leurs informations démographiques 
+      (ville, État, code postal) et effectue des validations simples sur les données.
+    columns:
+      - name: customer_id
+        description: >
+          Identifiant unique du client.
+        tests:
+          - not_null
+          - unique
+
+      - name: first_name
+        description: >
+          Prénom du client.
+
+      - name: last_name
+        description: >
+          Nom de famille du client.
+
+      - name: city
+        description: >
+          Ville de résidence du client.
+
+      - name: state
+        description: >
+          État de résidence du client.
+
+      - name: zip_code
+        description: >
+          Code postal du client.
+
+      

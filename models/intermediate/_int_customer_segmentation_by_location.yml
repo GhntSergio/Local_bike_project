@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: int_customer_segmentation_by_location
+    description: >
+      Modèle intermédiaire qui segmente les clients par localisation (ville, état et code postal). 
+      Ce modèle permet d’identifier les zones avec une forte concentration de clients pour des campagnes ciblées.
+    columns:
+      - name: city
+        description: >
+          Ville de résidence des clients.
+        tests:
+          - not_null: {} # Vérifie que city ne contient pas de valeur NULL
+      - name: state
+        description: >
+          État de résidence des clients.
+        tests:
+          - not_null: {} # Vérifie que state ne contient pas de valeur NULL
+      - name: zip_code
+        description: >
+          Code postal de résidence des clients.
+        tests:
+          - not_null: {} # Vérifie que zip_code ne contient pas de valeur NULL
+      - name: total_customers
+        description: >
+          Nombre total de clients dans cette localisation.
+        tests:
+          - not_null: {} # Vérifie que total_customers ne contient pas de valeur NULL
+          

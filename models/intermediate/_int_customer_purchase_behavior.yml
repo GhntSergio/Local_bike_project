@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: int_customer_purchase_behavior
+    description: >
+      Modèle intermédiaire qui analyse le comportement d'achat des clients. Ce modèle calcule
+      la fréquence des achats (nombre total de commandes) et la récurrence (temps moyen entre deux commandes)
+      pour chaque client.
+    columns:
+      - name: customer_id
+        description: >
+          Identifiant unique du client. Utilisé pour relier les données de comportement d'achat aux informations clients.
+        tests:
+          - not_null: {} # Vérifie que customer_id ne contient pas de valeur NULL
+          - unique: {} # Vérifie que chaque customer_id est unique
+      - name: total_purchases
+        description: >
+          Nombre total de commandes passées par le client.
+        tests:
+          - not_null: {} # Vérifie que total_purchases ne contient pas de valeur NULL
+          
+      - name: first_purchase_date
+        description: >
+          Date de la première commande passée par le client.
+        tests:
+          - not_null: {} # Vérifie que first_purchase_date ne contient pas de valeur NULL
+      - name: last_purchase_date
+        description: >
+          Date de la dernière commande passée par le client.
+        tests:
+          - not_null: {} # Vérifie que last_purchase_date ne contient pas de valeur NULL
+      - name: distinct_purchase_days
+        description: >
+          Nombre de jours distincts où le client a passé des commandes.
+        tests:
+          - not_null: {} # Vérifie que distinct_purchase_days ne contient pas de valeur NULL
+         
+      - name: avg_days_between_purchases
+        description: >
+          Temps moyen en jours entre deux commandes successives du client.
+        tests:
+          - not_null: {} # Vérifie que avg_days_between_purchases ne contient pas de valeur NULL
+          

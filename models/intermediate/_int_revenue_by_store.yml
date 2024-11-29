@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: int_revenue_by_store
+    description: >
+      Modèle intermédiaire qui calcule les revenus totaux par magasin en utilisant les données des commandes
+      et des articles commandés. Ce modèle est utilisé pour analyser la performance des ventes par point de vente.
+    columns:
+      - name: store_id
+        description: >
+          Identifiant unique du magasin. Utilisé pour relier les revenus aux magasins correspondants.
+        tests:
+          - not_null: {} # Vérifie que store_id ne contient pas de valeur NULL
+      - name: store_name
+        description: >
+          Nom du magasin correspondant à l'identifiant store_id.
+        tests:
+          - not_null: {} # Vérifie que store_name ne contient pas de valeur NULL
+      - name: total_revenue
+        description: >
+          Revenus totaux générés par les commandes dans le magasin. Calculé après application des réductions.
+        tests:
+          - not_null: {} # Vérifie que total_revenue ne contient pas de valeur NULL
+          
