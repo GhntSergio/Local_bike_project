@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: seasonality_trends_mart
+    description: >
+      Table mart pour analyser la saisonnalité des ventes. Elle identifie les pics et 
+      périodes creuses à partir des données de ventes mensuelles.
+    columns:
+      - name: sales_month
+        description: >
+          Mois correspondant aux ventes sous format YYYY-MM.
+      - name: total_revenue
+        description: >
+          Revenus totaux générés pendant ce mois.
+      - name: total_quantity
+        description: >
+          Quantité totale de produits vendus pendant ce mois.
+      - name: revenue_percentage
+        description: >
+          Pourcentage des revenus totaux réalisés pendant ce mois.
+      - name: quantity_percentage
+        description: >
+          Pourcentage des quantités totales vendues pendant ce mois.

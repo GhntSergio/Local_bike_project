@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: mart_profitability
+    description: >
+      Table mart consolidant les données de rentabilité des produits, y compris
+      les marges bénéficiaires, les revenus totaux, les quantités vendues et
+      la contribution au revenu global.
+    columns:
+      - name: product_id
+        description: >
+          Identifiant unique du produit.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: >
+          Nom du produit.
+
+      - name: total_revenue
+        description: >
+          Revenus totaux générés par le produit.
+        tests:
+          - not_null
+
+      - name: total_quantity_sold
+        description: >
+          Quantité totale vendue pour le produit.
+        tests:
+          - not_null
+
+      - name: revenue_percentage
+        description: >
+          Contribution du produit au revenu global en pourcentage.
+        tests:
+          - not_null
+
+      - name: gross_profit
+        description: >
+          Marge bénéficiaire brute pour le produit.
+
+      - name: gross_margin_percentage
+        description: >
+          Pourcentage de marge bénéficiaire brute.

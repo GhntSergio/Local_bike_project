@@ -22,6 +22,7 @@ WITH customer_orders AS (
 
 aggregated_data AS (
     SELECT
+        customer_id,
         city,
         state,
         zip_code,
@@ -31,10 +32,11 @@ aggregated_data AS (
         SUM(total_spent) AS total_revenue, -- Montant total dépensé par localisation
         ROUND(AVG(total_spent / total_orders), 2) AS avg_order_value -- Valeur moyenne par commande
     FROM customer_orders
-    GROUP BY city, state, zip_code
+    GROUP BY customer_id, city, state, zip_code
 )
 
 SELECT
+    customer_id,
     city,
     state,
     zip_code,

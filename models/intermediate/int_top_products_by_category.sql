@@ -6,6 +6,7 @@ WITH product_sales AS (
     SELECT
         p.category_id,
         p.product_id,
+        o.store_id,
         p.product_name,
         c.category_name,
         SUM(oi.quantity) AS total_quantity_sold -- Calcul des quantités totales vendues par produit
@@ -14,12 +15,15 @@ WITH product_sales AS (
       ON oi.product_id = p.product_id
     JOIN {{ ref('stg_localbike_categories') }} c
       ON p.category_id = c.category_id
-    GROUP BY 1, 2, 3, 4
+    JOIN {{ ref('stg_localbike_orders') }} o
+      ON oi.order_id = o.order_id
+    GROUP BY 1, 2, 3, 4, 5
 ),
 
 ranked_products AS (
     SELECT
         category_id,
+        store_id,
         category_name,
         product_id,
         product_name,
@@ -30,6 +34,7 @@ ranked_products AS (
 
 SELECT
     category_id,
+    store_id,
     category_name,
     product_id,
     product_name,

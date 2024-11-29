@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: sales_performance_mart
+    description: >
+      Table mart consolidée sur la performance des ventes. Elle regroupe les revenus 
+      par point de vente, les produits les plus vendus par catégorie, et les ventes 
+      par canal (physique et en ligne).
+    columns:
+      - name: store_id
+        description: >
+          Identifiant unique du point de vente.
+      - name: store_name
+        description: >
+          Nom du point de vente.
+      - name: revenue_by_store
+        description: >
+          Revenus totaux générés par ce point de vente.
+      - name: category_name
+        description: >
+          Nom de la catégorie des produits.
+      - name: product_name
+        description: >
+          Nom des produits les plus vendus dans chaque catégorie.
+      - name: top_product_quantity
+        description: >
+          Quantité totale vendue pour le produit le plus vendu dans chaque catégorie.
+      
