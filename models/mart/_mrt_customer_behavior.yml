@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: mart_ customer_behavior
+  - name: mrt_ customer_behavior
     description: >
       Table mart consolidée sur le comportement client. Elle regroupe les analyses de fréquence
       et récurrence des achats, la catégorisation des clients par localisation, et les comportements
