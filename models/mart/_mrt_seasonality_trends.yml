@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: seasonality_trends_mart
+  - name: mart_seasonality_trends
     description: >
       Table mart pour analyser la saisonnalité des ventes. Elle identifie les pics et 
       périodes creuses à partir des données de ventes mensuelles.
