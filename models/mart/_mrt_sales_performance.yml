@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: sales_performance_mart
+  - name: mart_sales_performance
     description: >
       Table mart consolidée sur la performance des ventes. Elle regroupe les revenus 
       par point de vente, les produits les plus vendus par catégorie, et les ventes 
