@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: int_sales_seasonality
+    description: >
+      Ce modèle analyse la saisonnalité des ventes en agrégant les données par mois. 
+      Il calcule les revenus totaux, les quantités totales vendues, et leur proportion 
+      relative (en pourcentage) pour chaque mois, afin d'identifier les tendances et 
+      les périodes clés de vente.
+    columns:
+      - name: sales_month
+        description: >
+          Mois de vente sous format "YYYY-MM". Combinaison de l'année et du mois de la commande.
+        tests:
+          - not_null: {} # Vérifie que sales_month ne contient pas de valeur NULL
+          - unique: {} # Vérifie que chaque mois est unique
+      - name: total_revenue
+        description: >
+          Revenus totaux générés par les ventes pendant ce mois, calculés après application 
+          des réductions.
+        tests:
+          - not_null: {} # Vérifie que total_revenue ne contient pas de valeur NULL
+          
+      - name: total_quantity
+        description: >
+          Quantité totale de produits vendus pendant ce mois.
+        tests:
+          - not_null: {} # Vérifie que total_quantity ne contient pas de valeur NULL
+          
+      - name: revenue_percentage
+        description: >
+          Proportion des revenus totaux réalisés pendant ce mois, exprimée en pourcentage.
+        tests:
+          - not_null: {} # Vérifie que revenue_percentage ne contient pas de valeur NULL
+          
+      - name: quantity_percentage
+        description: >
+          Proportion des quantités totales vendues pendant ce mois, exprimée en pourcentage.
+        tests:
+          - not_null: {} # Vérifie que quantity_percentage ne contient pas de valeur NULL
+          

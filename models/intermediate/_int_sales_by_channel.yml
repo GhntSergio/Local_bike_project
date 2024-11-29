@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: int_sales_by_channel
+    description: >
+      Modèle intermédiaire qui calcule les ventes totales (quantité et revenus) par canal de vente.
+      Les canaux de vente sont différenciés en "Physique" (ventes en magasin) et "En ligne" (commandes sans magasin associé).
+    columns:
+      - name: sales_channel
+        description: >
+          Canal de vente ("Physique" pour les ventes en magasin et "En ligne" pour les commandes en ligne).
+        tests:
+          - not_null: {} # Vérifie que sales_channel ne contient pas de valeur NULL
+      - name: total_quantity
+        description: >
+          Quantité totale de produits vendus via ce canal.
+        tests:
+          - not_null: {} # Vérifie que total_quantity ne contient pas de valeur NULL
+          
+      - name: total_revenue
+        description: >
+          Revenus totaux générés par les ventes via ce canal.
+        tests:
+          - not_null: {} # Vérifie que total_revenue ne contient pas de valeur NULL
+          

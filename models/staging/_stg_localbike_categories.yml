@@ -19,4 +19,7 @@ models:
           Nom de la catégorie. Utilisé pour identifier et classer les produits.
         tests:
           - not_null: {} # Vérifie que category_name ne contient pas de valeur NULL
-
+      - name: cost_ratio
+        description: "Ratio coût/prix pour chaque catégorie."
+        tests:
+          - not_null

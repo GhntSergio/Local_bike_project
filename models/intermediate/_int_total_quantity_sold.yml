@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: int_total_quantity_sold
+    description: >
+      Ce modèle calcule la quantité totale vendue pour chaque produit. 
+      Il regroupe les données par produit et trie les résultats par quantité décroissante.
+    columns:
+      - name: product_id
+        description: >
+          Identifiant unique du produit.
+        tests:
+          - not_null: {} # Vérifie que product_id ne contient pas de valeur NULL
+          - unique: {} # Vérifie que chaque produit a une seule entrée
+      - name: product_name
+        description: >
+          Nom du produit vendu.
+        tests:
+          - not_null: {} # Vérifie que product_name ne contient pas de valeur NULL
+      - name: total_quantity_sold
+        description: >
+          Quantité totale de ce produit vendue.
+        tests:
+          - not_null: {} # Vérifie que total_quantity_sold ne contient pas de valeur NULL
+          

@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: int_customer_purchase_by_location
+    description: >
+      Modèle intermédiaire qui analyse le comportement d'achat des clients regroupés par localisation
+      (ville, état, code postal). Ce modèle calcule les commandes totales, les revenus totaux,
+      et la valeur moyenne par commande pour chaque zone géographique.
+    columns:
+      - name: city
+        description: >
+          Ville de résidence des clients pour cette analyse.
+        tests:
+          - not_null: {} # Vérifie que city ne contient pas de valeur NULL
+      - name: state
+        description: >
+          État de résidence des clients pour cette analyse.
+        tests:
+          - not_null: {} # Vérifie que state ne contient pas de valeur NULL
+      - name: zip_code
+        description: >
+          Code postal des clients pour cette analyse.
+        tests:
+          - not_null: {} # Vérifie que zip_code ne contient pas de valeur NULL
+      - name: total_customers
+        description: >
+          Nombre total de clients dans cette localisation.
+        tests:
+          - not_null: {} # Vérifie que total_customers ne contient pas de valeur NULL
+          
+      - name: total_orders
+        description: >
+          Nombre total de commandes passées par les clients de cette localisation.
+        tests:
+          - not_null: {} # Vérifie que total_orders ne contient pas de valeur NULL
+          
+      - name: total_quantity
+        description: >
+          Quantité totale de produits achetés par les clients de cette localisation.
+        tests:
+          - not_null: {} # Vérifie que total_quantity ne contient pas de valeur NULL
+          
+      - name: total_revenue
+        description: >
+          Montant total dépensé par les clients de cette localisation.
+        tests:
+          - not_null: {} # Vérifie que total_revenue ne contient pas de valeur NULL
+          
+      - name: avg_order_value
+        description: >
+          Valeur moyenne par commande pour cette localisation.
+        tests:
+          - not_null: {} # Vérifie que avg_order_value ne contient pas de valeur NULL
+          

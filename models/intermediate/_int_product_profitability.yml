@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: int_product_profitability
+    description: >
+      Ce modèle calcule les métriques de rentabilité par produit, y compris
+      le total des ventes, les coûts estimés et la marge bénéficiaire brute.
+    columns:
+      - name: product_id
+        description: >
+          Identifiant unique du produit.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: >
+          Nom du produit.
+
+      - name: total_quantity_sold
+        description: >
+          Quantité totale vendue pour ce produit.
+
+      - name: total_revenue
+        description: >
+          Total des revenus générés par ce produit, après réduction.
+        tests:
+          - not_null
+          
+      - name: total_cost
+        description: >
+          Coût total estimé basé sur les quantités vendues et le coût unitaire estimé.
+
+      - name: gross_profit
+        description: >
+          Marge bénéficiaire brute pour ce produit (revenus totaux - coûts totaux).
+        tests:
+          - not_null
+
+      - name: gross_margin_percentage
+        description: >
+          Pourcentage de marge bénéficiaire brute (marge bénéficiaire brute divisée par les revenus totaux).
+        tests:
+          - not_null
+          

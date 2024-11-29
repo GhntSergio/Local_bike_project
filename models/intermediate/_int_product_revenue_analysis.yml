@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: int_product_revenue_analysis
+    description: >
+      Modèle intermédiaire qui analyse les revenus générés par produit. 
+      Il calcule le revenu total, la quantité totale vendue, et la contribution 
+      de chaque produit au revenu total.
+    columns:
+      - name: product_id
+        description: >
+          Identifiant unique du produit.
+        tests:
+          - not_null: {} # Vérifie que product_id ne contient pas de valeur NULL
+          - unique: {} # Vérifie que chaque produit a une seule entrée
+      - name: product_name
+        description: >
+          Nom du produit vendu.
+        tests:
+          - not_null: {} # Vérifie que product_name ne contient pas de valeur NULL
+      - name: list_price
+        description: >
+          Prix unitaire ou de vente du produit.
+        tests:
+          - not_null: {} # Vérifie que list_price ne contient pas de valeur NULL
+          
+      - name: total_quantity_sold
+        description: >
+          Quantité totale de ce produit vendue.
+        tests:
+          - not_null: {} # Vérifie que total_quantity_sold ne contient pas de valeur NULL
+          
+      - name: total_revenue
+        description: >
+          Revenus totaux générés par les ventes de ce produit.
+        tests:
+          - not_null: {} # Vérifie que total_revenue ne contient pas de valeur NULL
+          
+      - name: revenue_percentage
+        description: >
+          Contribution au revenu total (en pourcentage).
+        tests:
+          - not_null: {} # Vérifie que revenue_percentage ne contient pas de valeur NULL
+          
