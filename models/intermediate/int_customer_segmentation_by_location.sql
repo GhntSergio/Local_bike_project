@@ -4,6 +4,7 @@
 
 WITH location_segmentation AS (
     SELECT
+        c.customer_id,
         c.city,
         c.state,
         c.zip_code,
@@ -11,10 +12,11 @@ WITH location_segmentation AS (
     FROM {{ ref('stg_localbike_customers') }} c
     WHERE c.city IS NOT NULL -- Exclure les clients sans ville
       AND c.state IS NOT NULL -- Exclure les clients sans état
-    GROUP BY c.city, c.state, c.zip_code
+    GROUP BY c.customer_id, c.city, c.state, c.zip_code
 )
 
 SELECT
+    customer_id,
     city,
     state,
     zip_code,

@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: customer_behavior_mart
+    description: >
+      Table mart consolidée sur le comportement client. Elle regroupe les analyses de fréquence
+      et récurrence des achats, la catégorisation des clients par localisation, et les comportements
+      d'achat dans chaque localisation.
+    columns:
+      - name: customer_id
+        description: >
+          Identifiant unique du client.
+      - name: total_purchases
+        description: >
+          Nombre total d'achats effectués par le client.
+      - name: avg_days_between_purchases
+        description: >
+          Temps moyen entre deux achats consécutifs pour le client.
+      - name: city
+        description: >
+          Ville de résidence du client.
+      - name: state
+        description: >
+          État de résidence du client.
+      - name: total_orders
+        description: >
+          Nombre total de commandes passées par les clients dans la localisation donnée.
+      - name: total_revenue
+        description: >
+          Montant total dépensé par les clients dans la localisation donnée.
+      - name: avg_order_value
+        description: >
+          Valeur moyenne des commandes pour la localisation donnée.
