@@ -1,9 +1,6 @@
--- Test 5: Vérifier que les marges bénéficiaires sont calculées correctement
+-- Test 6: Vérifier que le pourcentage de marge bénéficiaire est valide (entre 0 et 100)
 SELECT
     product_id,
-    gross_profit,
-    total_revenue,
-    total_cost,
-    (total_revenue - total_cost) AS calculated_gross_profit
+    gross_margin_percentage
 FROM {{ ref('mart_profitability') }}
-WHERE gross_profit != (total_revenue - total_cost)
+WHERE gross_margin_percentage IS NULL OR gross_margin_percentage < 0 OR gross_margin_percentage > 100
